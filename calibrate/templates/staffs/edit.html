@@ -1,0 +1,20 @@
+{% extends "calibrate/base.html" %} {% block content %}
+<div class="col-sm-10">
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+            <h4><strong>Edit Staff Details</strong></h4>
+        </div>
+        <div class="panel-body">
+            <form method="POST">
+                {% csrf_token %}
+                <table>
+                    {{user_form.as_p}}
+                </table>
+                <br>
+                <input type="submit" class="btn btn-primary" value="Update Staff">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

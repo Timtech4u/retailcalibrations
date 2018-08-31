@@ -1,0 +1,17 @@
+{% extends "calibrate/base.html" %} {% block content %}
+<div class="col-sm-10">
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+            <h4><strong>Add/Edit Calibration </strong></h4>
+        </div>
+        <div class="panel-body">
+            <form method="post" enctype="multipart/form-data">{% csrf_token %} {{ form.as_p }}
+                <input type="submit" class="btn btn-primary" value="Submit">
+            </form>
+
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

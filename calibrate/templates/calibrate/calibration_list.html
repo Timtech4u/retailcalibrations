@@ -1,0 +1,52 @@
+{% extends "calibrate/base.html" %}{% block content %}
+<div class="col-sm-10">
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+            <h4><b>All Calibrations</b></h4>
+        </div>
+        <div class="panel-body">
+            <a class="btn btn-success" href=" {% url 'calibrate:calibration_new'%} " role="button">Add New</a>
+        </div>
+        <div class="container-fluid">
+            <ul>
+                <table id="table_id" class="display nowrap table-bordered" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Transporter</th>
+                            <th>Reg No</th>
+                            <th>calibration Date</th>
+                            <th>Exp. Date</th>
+                            <th>Certificate No.</th>
+                            <th>Capacity</th>
+                            <th>Status</th>
+                            <th>View File</th>
+                            {% if user.is_adminStaff or user.is_superAdmin%}
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            {% endif %}
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for calibration in object_list %}
+                        <tr>
+                            <td> {{ calibration.transporter }} </td>
+                            <td> {{ calibration.registration_number}} </td>
+                            <td> {{ calibration.date_issued}} </td>
+                            <td> {{ calibration.date_expired}} </td>
+                            <td> {{ calibration.certificate_number}} </td>
+                            <td> {{ calibration.capacity}} </td>
+                            <td> {{ calibration.status }} </td>
+                            <td> <a href="media/{{calibration.document }}" target=blank>File</a></td>
+                            {% if user.is_adminStaff or user.is_superAdmin%}
+                            <td> <a href="{% url 'calibrate:calibration_edit' calibration.id %}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                            <td><a href="{% url 'calibrate:calibration_delete' calibration.id %}"><span class="glyphicon glyphicon-trash"></span></a></td>
+                            {% endif %} {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </ul>
+        </div>
+    </div>
+    {% endblock %}

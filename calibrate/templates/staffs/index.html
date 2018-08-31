@@ -1,0 +1,46 @@
+{% extends "calibrate/base.html" %} {% block content %}
+<div class="col-sm-10">
+
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+            <h4><b>List of Staffs</b></h4>
+        </div>
+        <div class="panel-body">
+            <a class="btn btn-primary" href="{% url 'calibrate:staff_add' %}" role="button">Add Regular Staff</a>
+            <a class="btn btn-primary" href="{% url 'calibrate:adminstaff_add' %}" role="button">Add Admin Staff</a>
+            <a class="btn btn-primary" href="{% url 'calibrate:superStaff_add' %}" role="button">Add Super Admin</a>
+        </div>
+        <div class="container-fluid">
+            <ul>
+                <table class="table table-bordered table-condensed" id="table_id">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Username</th>
+                            <th>User Group</th>
+                            <th>Details</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    {% if users %}
+                    <tbody>
+                        {% for user in users %}
+                        <tr>
+                            <td> {{user.first_name}}&nbsp;{{user.last_name}}</td>
+                            <td>{{user.username}}</td>
+                            <td>{{user.user_type}}</td>
+                            <td><a href="/staffs/{{user.id}}/details">Details</a></td>
+                            <td><a href="/staffs/{{user.id}}/edit">Edit</a></td>
+                            <td><a href="/staffs/{{user.id}}/delete">Delete</a></td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </ul>
+        </div>
+    </div>
+    {% else %}
+    <p>There is no Staffs Available</p>
+    {% endif %} {% endblock %}
