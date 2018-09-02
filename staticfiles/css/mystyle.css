@@ -1,0 +1,82 @@
+#header-nav {
+    border-radius: 0%;
+    background-color: green;
+    border: none;
+    background: linear-gradient(to right, teal, green);
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#navbar-brand {
+    color: white;
+    font-size: 25px;
+    font-family: roboto;
+}
+
+body {
+    background-color: white;
+}
+
+#content {
+    background-color: white;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.col-sm-2 {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: white;
+    margin-top: 52px;
+    height: 300px;
+}
+
+#glyphicon-list {
+    color: green;
+}
+
+#glyphicon-plus {
+    color: orange;
+}
+
+#glyphicon-user {
+    color: black;
+}
+
+#glyphicon-edit {
+    color: purple;
+}
+
+#glyphicon-log-out {
+    color: red;
+}
+
+.container {
+    margin-top: 80px;
+}
+
+body {
+    background-color: rgb(228, 224, 224);
+}
+
+#login-body {
+    margin-top: 130px;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#login-body {
+    background-color: rgb(186, 238, 186);
+}
+
+#login-panel-head {
+    border: none;
+    background-color: green;
+    background: linear-gradient(to right, teal, green);
+    height: 50px;
+}
+
+.panel-heading-text {
+    color: white;
+}
+
+.panel {
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 52px;
+}

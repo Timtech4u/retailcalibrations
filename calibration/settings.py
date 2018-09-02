@@ -25,7 +25,7 @@ SECRET_KEY = 'm30j=4elrc05mb%as2k!bmc*pzjem8lo-=6!4g%q@m7&*^ax7&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['retailcalibration.appspot.com','127.0.0.1']
 
 
 # Application definition
@@ -77,10 +77,19 @@ WSGI_APPLICATION = 'calibration.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'retailcalibration',
+        'USER': 'retailcalibration',
+        'PASSWORD': 'password123',
+        'PORT': '5432',
     }
 }
+
+DATABASES['default']['HOST'] = '/cloudsql/retailcalibration:us-central1:retailcalibration'
+if os.getenv('retailcalibration'):
+    pass
+else:
+    DATABASES['default']['HOST'] = '127.0.0.1'
 
 
 # Password validation
@@ -119,14 +128,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = 'https://storage.googleapis.com/retailcalibration/static/'
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Redirect to home URL after login (Default redirects to /accounts/profile/)
+#Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'
 
 AUTH_USER_MODEL = 'calibrate.User'
