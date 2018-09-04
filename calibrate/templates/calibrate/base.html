@@ -40,7 +40,7 @@
             <a href="{% url 'calibrate:calibration_new'%} "><span class="glyphicon glyphicon-plus " id="glyphicon-plus "></span>  Add Calibration</a>
 
         </li>
-        {% endif %} {% if user.is_superAdmin %}
+        {% endif %} {% if user.is_superAdmin or user.is_superuser %}
         <li>
             <a href="{% url 'calibrate:staff_list' %} "><i class="fa fa-users "></i> Users</a>
         </li>
