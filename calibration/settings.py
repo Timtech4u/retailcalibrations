@@ -25,7 +25,7 @@ SECRET_KEY = 'm30j=4elrc05mb%as2k!bmc*pzjem8lo-=6!4g%q@m7&*^ax7&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['retailcalibration.appspot.com','127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
